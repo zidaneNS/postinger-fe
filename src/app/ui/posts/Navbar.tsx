@@ -1,6 +1,6 @@
 'use client';
 
-import { Bars3Icon, ClipboardDocumentIcon, Cog6ToothIcon, NewspaperIcon, PlusCircleIcon, UserCircleIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, ClipboardDocumentIcon, Cog6ToothIcon, NewspaperIcon, PlusCircleIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -17,7 +17,7 @@ export default function Navbar() {
             setIsOpenUser(barsRef.current == e.target || mobileNavRef.current == e.target || openUserRef.current === e.target);
         }
 
-        isOpenUser && window.addEventListener('click', handleWindowClick);
+        if (isOpenUser) window.addEventListener('click', handleWindowClick);
     }, [isOpenUser]);
 
     return (
