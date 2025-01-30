@@ -12,6 +12,7 @@ export async function getPosts(): Promise<PostType[] | undefined> {
         const result = data.data.posts;
         const posts: PostType[] = result.map((item: RawPostType): PostType => (
             {
+                id: item.id,
                 title: item.title,
                 author: item.user.name,
                 body: item.body,

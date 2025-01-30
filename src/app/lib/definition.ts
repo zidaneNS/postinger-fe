@@ -18,6 +18,7 @@ export type RawPostType = {
 }
 
 export type PostType = {
+    id: string | number,
     title: string,
     author: string,
     body: string,
