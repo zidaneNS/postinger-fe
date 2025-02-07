@@ -43,7 +43,7 @@ export type LoginFormState = {
 export const SignUpFormSchema = z.object({
     name: z.string().min(3),
     email: z.string().email({ message: 'Please enter a valid email' }).trim(),
-    password: z.string().min(8, { message: 'Password at least 8 letters' }).regex(/[a-zA-Z]/, { message: 'Password must contain at least 1 letter' }).trim(),
+    password: z.string().min(8, { message: 'Password at least 8 letters' }).trim(),
     password_confirmation: z.string().trim()
 })
 
@@ -59,5 +59,6 @@ export type RegisterFormState = {
 
 export type SessionPayload = {
     token: string,
-    user: UserType
+    user: UserType,
+    expiresAt: Date
 }

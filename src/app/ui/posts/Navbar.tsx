@@ -4,8 +4,9 @@ import { Bars3Icon, ClipboardDocumentIcon, Cog6ToothIcon, NewspaperIcon, PlusCir
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import AuthButton from "./user/AuthButton";
 
-export default function Navbar() {
+export default function Navbar({ isLoggedIn }: { isLoggedIn: boolean }) {
     const [isOpenUser, setIsOpenUser] = useState(false);
     const mobileNavRef = useRef<HTMLDivElement>(null);
     const barsRef = useRef<SVGSVGElement>(null);
@@ -46,7 +47,7 @@ export default function Navbar() {
                         <p className="text-white">Dashboard</p>
                     </Link>
                 </div>
-                <button className="w-full px-6 py-2 rounded-xl bg-blue-800 hover:bg-blue-700 text-white">Sign In / Logout</button>
+                <AuthButton isLoggedIn={isLoggedIn} />
             </div>
 
             {/* Mobile */}
@@ -78,7 +79,7 @@ export default function Navbar() {
                         <p className="text-white">Add Post</p>
                     </Link>
                 </div>
-                <button className="w-full px-6 py-2 rounded-xl bg-blue-800 hover:bg-blue-700 text-white">Sign In / Logout</button>
+                <AuthButton isLoggedIn={isLoggedIn} />
             </div>
         </nav>
     )
