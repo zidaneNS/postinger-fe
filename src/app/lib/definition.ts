@@ -59,6 +59,5 @@ export type RegisterFormState = {
 
 export type SessionPayload = {
     token: string,
-    user: UserType,
     expiresAt: Date
 }

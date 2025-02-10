@@ -24,9 +24,9 @@ export async function login(prevState: LoginFormState, formData: FormData) {
             }
         });
         
-        const { token, user } = response.data as SessionPayload;
+        const { token } = response.data as SessionPayload;
 
-        await createSession(user, token);
+        await createSession(token);
           
     } catch (err) {
         if (err instanceof AxiosError) {
